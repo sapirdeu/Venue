@@ -10,46 +10,16 @@ function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [headerShow, setHeaderShow] = useState(false);
 
-    // const state = {
-    //     drawerOpen: false,
-    //     headerShow: false
-    // };
-
-    // const componentDidMount = () => {
-    //     window.addEventListener('scroll', this.handelScroll);
-    // }
-
     window.addEventListener('scroll', function() {
-            //console.log(event);
             var lastScrollTop = 0;
             var st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop) {
-                //console.log(window.screenY);
                 setHeaderShow(true);
             } else {
-                //console.log(window.screenY);
                 setHeaderShow(false);
             }
         }
     )
-
-    // const handleScroll = () => {
-    //     var lastScrollTop = 0;
-    //     var st = window.pageYOffset || document.documentElement.scrollTop;
-    //     if (st > lastScrollTop) {
-    //         //console.log(window.screenY);
-    //         setHeaderShow(true);
-    //     } else {
-    //         //console.log(window.screenY);
-    //         setHeaderShow(false);
-    //     }
-    // }
-
-    // const toggleDrawer = (value) => {
-    //     this.setState({
-    //         drawerOpen: value
-    //     });
-    // };
 
     return (
         <div>
