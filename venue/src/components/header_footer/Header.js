@@ -1,28 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import './Header.css';
+import SideDrawer from './SideDrawer';
 
 
 function Header() {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [headerShow, setHeaderShow] = useState(false);
+
+    // const state = {
+    //     drawerOpen: false,
+    //     headerShow: false
+    // };
+
+    // const componentDidMount = () => {
+    //     window.addEventListener('scroll', this.handelScroll);
+    // }
+
+    window.addEventListener('scroll', function() {
+            //console.log(event);
+            var lastScrollTop = 0;
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                //console.log(window.screenY);
+                setHeaderShow(true);
+            } else {
+                //console.log(window.screenY);
+                setHeaderShow(false);
+            }
+        }
+    )
+
+    // const handleScroll = () => {
+    //     var lastScrollTop = 0;
+    //     var st = window.pageYOffset || document.documentElement.scrollTop;
+    //     if (st > lastScrollTop) {
+    //         //console.log(window.screenY);
+    //         setHeaderShow(true);
+    //     } else {
+    //         //console.log(window.screenY);
+    //         setHeaderShow(false);
+    //     }
+    // }
+
+    // const toggleDrawer = (value) => {
+    //     this.setState({
+    //         drawerOpen: value
+    //     });
+    // };
+
     return (
         <div>
             <AppBar
                 position="fixed"
                 style={{ 
-                    backgroundColor: '#2f2f2f',
+                    backgroundColor: headerShow ? '#2f2f2f' : 'transparent',
                     boxShadow: 'none',
                     padding: '10px 0px'
                 }}
             >
                 <Toolbar>
                     <div className="header_logo">
-                        <div className="font_righteaous header_logo_venue  header_logo_firstLine">
+                        <div className="font_righteous header_logo_venue">
                             The Venue
                         </div>
-                        <div className="header_logo_title header_logo_secondLine">
+                        <div className="header_logo_title">
                             Musical Events
                         </div>
                     </div>
@@ -30,15 +74,21 @@ function Header() {
                     <IconButton
                         aria-label= 'Menu'
                         color= 'inherit'
-                        onClick= {()=>console.log('open')}
+                        onClick= {()=>setDrawerOpen(true)}
                     >
                         <MenuIcon>
                         </MenuIcon>
                     </IconButton>
+
+                    <SideDrawer
+                        open = {drawerOpen} 
+                        onClose = {(value) => setDrawerOpen(value)}
+                    />
                 </Toolbar>
             </AppBar>
+            
         </div>
     )
 }
 
-export default Header
+export default Header;

@@ -1,11 +1,13 @@
 import React from 'react';
 import './resources/styles.css';
 import Header from './components/header_footer/Header';
+import Featured from './components/featured/Featured';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ height:"1500px",background:'cornflowerblue'}}>
       <Header/>
+      <Featured/>
     </div>
   );
 }
