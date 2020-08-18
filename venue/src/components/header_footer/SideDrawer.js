@@ -21,10 +21,6 @@ function SideDrawer(props) {
         console.log('Pricing')
     };
 
-    const handleClickLocation = () => {
-        console.log('Location')
-    };
-
     return (
         <Drawer
             anchor = "right"
@@ -48,11 +44,6 @@ function SideDrawer(props) {
                 <ListItem button onClick={handleClickPricing}>
                     Pricing
                 </ListItem>
-
-                <ListItem button onClick={handleClickLocation}>
-                    Location
-                </ListItem>
-
             </List>
         </Drawer>
     )
