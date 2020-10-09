@@ -15,5 +15,5 @@ npm install
 ## Usage:
 1. Run `cd .\Venue\venue\`
 2. Run `npm start`
-3. Go to the new window that opens in Chrome at http://localhost:3000/ and make some fun! 😊
+3. Go to the new window that opens in Chrome at http://localhost:3000/ and have fun! 😊
 
